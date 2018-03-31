@@ -1,5 +1,4 @@
 class Settings():
-	
 	def __init__(self):
 		#屏幕设置
 		self.screen_width = 1200

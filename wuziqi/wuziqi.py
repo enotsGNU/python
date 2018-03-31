@@ -5,6 +5,7 @@ from pygame.locals import *
 from settings import Settings
 from chess import Chess
 flag = 0
+'''
 #传入屏幕对象
 def init_chessboard(screen):
 	qiset = Settings()
@@ -18,6 +19,7 @@ def init_chessboard(screen):
 	for i in range(0,qiset.columns_num + 1):
 		a = i * qiset.row_width
 		pygame.draw.line(screen,qiset.qipan_color,(zerox + a,zeroy),(zerox + a,zeroy + qiset.row_num * qiset.row_width),5)
+'''
 def run_game():
 	global flag
 	
@@ -32,9 +34,9 @@ def run_game():
 	#bg_color
 	screen.fill(qiset.bg_color)
 	#绘制棋盘
-	init_chessboard(screen)
+	chess.chessboard(screen)	
 
-    #main()
+	#main()
 	while True:
 		for event in pygame.event.get():
 			if event.type == pygame.QUIT:
@@ -45,7 +47,8 @@ def run_game():
 					if pressed_array[i]:
 						if i == 0:
 							#left button
-							chess.blitme(flag)
+							#chess.blitme(flag)
+							chess.coordinate(flag)
 							flag = ~flag
 						elif i == 1:
 							#mouse wheel
@@ -53,7 +56,7 @@ def run_game():
 						elif i == 2:
 							pass
 							#right button
-							#print('right button')
+							#chess.coordinate(flag)
 
 		#让最近绘制的屏幕可见
 		pygame.display.flip()
